@@ -7,7 +7,7 @@ module RomSqlGraph
     end
 
     def to_a
-      relations.map! do |name, relation|
+      relations.map do |name, relation|
         relation.schema.associations.elements.map do |_, object|
           association_name = Inflecto.pluralize(object.target.to_sym.to_s).to_sym
           [name, association_name]
