@@ -1,6 +1,6 @@
 # RomSqlGraph
 
-Rom-rb and hanami tool for generating db (sql) association graph.
+[Rom-rb](http://rom-rb.org) and [hanami](http://hanamirb.org) tool for generating db (sql) association graph.
 
 **For generating image you need to install graphviz tool (http://www.graphviz.org)**
 
