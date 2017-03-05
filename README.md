@@ -45,7 +45,7 @@ graph.to_json
 
 ## TODO:
 - [ ] add tests
-- [ ] generate html
+- [x] generate html
 - [ ] generate json
 
 ## Contributing
