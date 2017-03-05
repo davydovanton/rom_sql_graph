@@ -18,6 +18,10 @@ module RomSqlGraph
       graph.write_to_graphic_file('jpg')
     end
 
+    def generate_html
+      HtmlGeneration.new(edges).call
+    end
+
     def to_s
       graph.edges.sort.to_s
     end

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Association graph</title>
+    <script type="text/javascript" src="https://www.graphdracula.net/js/raphael-min.js"></script>
+    <script type="text/javascript" src="https://www.graphdracula.net/js/graffle.js"></script>
+    <script type="text/javascript" src="https://www.graphdracula.net/js/graph.js"></script>
+    <script type="text/javascript">
+      var redraw;
+      var height = 600;
+      var width = 1000;
+
+      window.onload = function() {
+
+        var g = new Graph();
+
+        <% @edges.each do |edge| %>
+          g.addEdge('<%= edge.first %>', '<%= edge.last %>');
+        <% end %>
+
+        var layouter = new Graph.Layout.Spring(g);
+        layouter.layout();
+
+        var renderer = new Graph.Renderer.Raphael('canvas', g, width, height);
+        renderer.draw();
+
+        redraw = function() {
+          layouter.layout();
+          renderer.draw();
+        };
+      };
+
+    </script>
+  </head>
+  <body>
+    <div id="canvas"></div>
+  </body>
+</html>
