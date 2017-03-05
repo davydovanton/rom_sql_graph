@@ -1,8 +1,8 @@
 # RomSqlGraph
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rom_sql_graph`. To experiment with that code, run `bin/console` for an interactive prompt.
+Rom-rb and hanami tool for generating db (sql) association graph.
 
-TODO: Delete this and the text above, and describe your gem
+**For generating image you need to install graphviz tool (http://www.graphviz.org)**
 
 ## Installation
 
@@ -27,14 +27,15 @@ Or install it yourself as:
 repo = UserRepository.new
 
 # Second: create Rom::Sql::Graph object
-graph = RomSqlGraph.new(repo)
+graph = RomSqlGraph.generate(repo)
 
 # Generate image or html file with your db associations
 graph.generate_image
 graph.generate_html
 
-# convert graph to array or json
+# convert graph to any type
 graph.to_a
+graph.to_s
 graph.to_json
 ```
 
