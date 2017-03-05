@@ -10,7 +10,7 @@ module RomSqlGraph
     end
 
     def edges
-      Edges.new(repo).to_a
+      @edges ||= Edges.new(repo).to_a
     end
     alias_method :to_a, :edges
 
@@ -31,7 +31,10 @@ module RomSqlGraph
     def graph
       if @graph.nil?
         @graph ||= RGL::DirectedAdjacencyGraph[]
-        to_a.each { |edge| graph.add_edge(*edge) }
+
+        edges
+          .map { |edge| edge.sort }.uniq
+          .each { |edge| graph.add_edge(*edge) }
       end
 
       @graph
