@@ -22,7 +22,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# First: create rom repository object
+repo = UserRepository.new
+
+# Second: create Rom::Sql::Graph object
+graph = RomSqlGraph.new(repo)
+
+# Generate image or html file with your db associations
+graph.generate_image
+graph.generate_html
+
+# convert graph to array or json
+graph.to_a
+graph.to_json
+```
 
 ## Development
 
