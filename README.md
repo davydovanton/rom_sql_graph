@@ -26,8 +26,11 @@ Or install it yourself as:
 # First: create rom repository object
 repo = UserRepository.new
 
-# Second: create Rom::Sql::Graph object
-graph = RomSqlGraph.generate(repo)
+# Second: get ROM container
+rom_container = repo.container
+
+# Next: create Rom::Sql::Graph object
+graph = RomSqlGraph.generate(rom_container)
 
 # Generate image or html file with your db associations
 graph.generate_image

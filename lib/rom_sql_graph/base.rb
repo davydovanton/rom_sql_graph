@@ -3,14 +3,14 @@ require 'rgl/dot'
 
 module RomSqlGraph
   class Base
-    attr_reader :repo
+    attr_reader :rom_container
 
-    def initialize(repo)
-      @repo = repo
+    def initialize(rom_container)
+      @rom_container = rom_container
     end
 
     def edges
-      @edges ||= Edges.new(repo).to_a
+      @edges ||= Edges.new(rom_container).to_a
     end
     alias_method :to_a, :edges
 

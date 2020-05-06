@@ -2,8 +2,8 @@ module RomSqlGraph
   class Edges
     attr_reader :relations, :table_names
 
-    def initialize(repo)
-      @relations = sql_relations(repo)
+    def initialize(rom_container)
+      @relations = sql_relations(rom_container)
       @table_names = @relations.keys
     end
 
@@ -18,8 +18,8 @@ module RomSqlGraph
 
     SQL = :sql
 
-    def sql_relations(repo)
-      repo.container.relations.elements
+    def sql_relations(container)
+      container.relations.elements
         .select { |name, object| object.class.adapter == SQL }
     end 
 
